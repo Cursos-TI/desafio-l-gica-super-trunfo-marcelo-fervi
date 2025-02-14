@@ -147,6 +147,10 @@ void compararDensidadePopulacionalEInformarCidadeGanhadora_Aventureiro(const cha
     }
 }
 
+/*
+    Será perguntado ao usuário qual propriedade ele quer comparar. Caso uma opção inválida seja escolhida,
+    a função se chamará novamente para garantir que uma opção válida seja retornada.
+*/
 int perguntarPropriedadeASerComparada() {
     printf("Informe qual o número da propriedade que deseja comparar entre as cartas, conforme as opções a seguir:\n");
     printf("1. População\n");
@@ -158,7 +162,15 @@ int perguntarPropriedadeASerComparada() {
     printf("7. Superpoder\n");
 
     int propriedadeEscolhida;
-    scanf("%d", &propriedadeEscolhida);
+    int result = scanf("%d", &propriedadeEscolhida);
+    if (result != 1) {
+        printf("Você não informou um número válido. Por favor, tente novamente!\n");
+        return perguntarPropriedadeASerComparada();
+    }
+    else if (propriedadeEscolhida <= 0 || propriedadeEscolhida >= 8) {
+        printf("Você não informou uma opção válida. Por favor, tente novamente!\n");
+        return perguntarPropriedadeASerComparada();
+    }
 
     return propriedadeEscolhida;
 }
