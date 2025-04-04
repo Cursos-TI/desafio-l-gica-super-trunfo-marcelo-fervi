@@ -130,8 +130,8 @@ void desafioAventureiro() {
 
     char* carta1Codigo = malloc(5);
     char* carta1Nome = malloc(32);
-    int carta1Populacao, carta1Area, carta1Pib, carta1PontosTuristicos;
-    float carta1DensidadePopulacional, carta1PibPerCapita, carta1SuperPoder;
+    int carta1Populacao = 0, carta1Area = 0, carta1Pib = 0, carta1PontosTuristicos = 0;
+    float carta1DensidadePopulacional = 0, carta1PibPerCapita = 0, carta1SuperPoder = 0;
     printf("- Primeira cidade\n");
     perguntarDadosDaCidade(carta1Codigo, carta1Nome, &carta1Populacao, &carta1Area, &carta1Pib, &carta1PontosTuristicos, &carta1DensidadePopulacional, &carta1PibPerCapita, &carta1SuperPoder);
 
@@ -139,8 +139,8 @@ void desafioAventureiro() {
 
     char* carta2Codigo = malloc(5);
     char* carta2Nome = malloc(32);
-    int carta2Populacao, carta2Area, carta2Pib, carta2PontosTuristicos;
-    float carta2DensidadePopulacional, carta2PibPerCapita, carta2SuperPoder;
+    int carta2Populacao = 0, carta2Area = 0, carta2Pib = 0, carta2PontosTuristicos = 0;
+    float carta2DensidadePopulacional = 0, carta2PibPerCapita = 0, carta2SuperPoder = 0;
     printf("- Segunda cidade\n");
     perguntarDadosDaCidade(carta2Codigo, carta2Nome, &carta2Populacao, &carta2Area, &carta2Pib, &carta2PontosTuristicos, &carta2DensidadePopulacional, &carta2PibPerCapita, &carta2SuperPoder);
 
