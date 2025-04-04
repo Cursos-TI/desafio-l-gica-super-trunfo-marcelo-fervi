@@ -77,7 +77,7 @@ int compararDensidadePopulacionalERetornarCidadeGanhadora(float carta1Valor, flo
     a função se chamará novamente para garantir que uma opção válida seja retornada.
 */
 int perguntarPropriedadeASerComparada(const char* pergunta) {
-    printf("%s:\n", pergunta);
+    printf("%s\n", pergunta);
     printf("1. População\n");
     printf("2. Área\n");
     printf("3. Pontos turísticos\n");
