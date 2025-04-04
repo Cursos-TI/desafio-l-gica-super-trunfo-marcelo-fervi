@@ -1,8 +1,9 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 // Desafio Super Trunfo - Países
 // Tema 2 - Comparação das Cartas
-void perguntarDadosDaCidade(char* codigoDaCidade, char* nome, int& populacao, int& area, int& pib, int& pontosTuristicos, float& densidadePopulacional, float& pibPerCapita, float& superPoder) {
+void perguntarDadosDaCidade(char* codigoDaCidade, char* nome, int* populacao, int* area, int* pib, int* pontosTuristicos, float* densidadePopulacional, float* pibPerCapita, float* superPoder) {
     // Solicita ao usuário que insira as informações de cada cidade, como o código, nome, população, área, etc.
     printf("Insira o código da cidade:\n");
     scanf("%s", codigoDaCidade);
@@ -11,21 +12,25 @@ void perguntarDadosDaCidade(char* codigoDaCidade, char* nome, int& populacao, in
     scanf("%s", nome);
 
     printf("Insira o tamanho da população da cidade:\n");
-    scanf("%d", &populacao);
+    scanf("%d", populacao);
 
     printf("Insira o tamanho da área da cidade:\n");
-    scanf("%d", &area);
+    scanf("%d", area);
 
     printf("Insira o PIB da cidade:\n");
-    scanf("%d", &pib);
+    scanf("%d", pib);
 
     printf("Insira o número de pontos turísticos da cidade:\n");
-    scanf("%d", &pontosTuristicos);
+    scanf("%d", pontosTuristicos);
 
     // Define as propriedades que precisam ser calculadas após termos todas as informações da cidade
-    densidadePopulacional = ((float)populacao / (float)area);
-    pibPerCapita = ((float)pib / (float)populacao);
-    superPoder = densidadePopulacional + pibPerCapita + (float)pontosTuristicos + (float)area + (float)populacao + (float)pib;
+    float novoDensidadePopulacional = ((float)*populacao / (float)*area);
+    float novoPibPerCapita = ((float)*pib / (float)*populacao);
+    float novoSuperPoder = (*densidadePopulacional + *pibPerCapita + (float)*pontosTuristicos + (float)*area + (float)*populacao + (float)*pib);
+
+    *densidadePopulacional = novoDensidadePopulacional;
+    *pibPerCapita = novoPibPerCapita;
+    *superPoder = novoSuperPoder;
 }
 
 void imprimirDadosDaCidade(char* codigoDaCidade, char* nome, int populacao, int area, int pib, int pontosTuristicos, float densidadePopulacional, float pibPerCapita, float superPoder) {
@@ -172,21 +177,21 @@ const char* retornarNomeDaPropriedadePeloId(int propriedade) {
 void desafioMestre() {
     printf("Para começarmos, informe os dados das cidades conforme será solicitado a seguir:\n");
 
-    char* carta1Codigo = new char[5];
-    char* carta1Nome = new char[32];
+    char* carta1Codigo = malloc(5);
+    char* carta1Nome = malloc(32);
     int carta1Populacao, carta1Area, carta1Pib, carta1PontosTuristicos;
     float carta1DensidadePopulacional, carta1PibPerCapita, carta1SuperPoder;
     printf("- Primeira cidade\n");
-    perguntarDadosDaCidade(carta1Codigo, carta1Nome, carta1Populacao, carta1Area, carta1Pib, carta1PontosTuristicos, carta1DensidadePopulacional, carta1PibPerCapita, carta1SuperPoder);
+    perguntarDadosDaCidade(carta1Codigo, carta1Nome, &carta1Populacao, &carta1Area, &carta1Pib, &carta1PontosTuristicos, &carta1DensidadePopulacional, &carta1PibPerCapita, &carta1SuperPoder);
 
     printf("\n");
 
-    char* carta2Codigo = new char[5];
-    char* carta2Nome = new char[32];
+    char* carta2Codigo = malloc(5);
+    char* carta2Nome = malloc(32);
     int carta2Populacao, carta2Area, carta2Pib, carta2PontosTuristicos;
     float carta2DensidadePopulacional, carta2PibPerCapita, carta2SuperPoder;
     printf("- Segunda cidade\n");
-    perguntarDadosDaCidade(carta2Codigo, carta2Nome, carta2Populacao, carta2Area, carta2Pib, carta2PontosTuristicos, carta2DensidadePopulacional, carta2PibPerCapita, carta2SuperPoder);
+    perguntarDadosDaCidade(carta2Codigo, carta2Nome, &carta2Populacao, &carta2Area, &carta2Pib, &carta2PontosTuristicos, &carta2DensidadePopulacional, &carta2PibPerCapita, &carta2SuperPoder);
 
     printf("\n");
 
