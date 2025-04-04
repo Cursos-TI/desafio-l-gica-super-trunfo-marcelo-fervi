@@ -100,21 +100,12 @@ int perguntarPropriedadeASerComparada(const char* pergunta) {
     return propriedadeEscolhida;
 }
 
-int identificarVencedorEmComparacaoDeUmaPropriedade_Int32(int propriedade, int carta1Propriedade, int carta2Propriedade) {
+int identificarVencedorEmComparacaoDeUmaPropriedade_Single32(int propriedade, float carta1Propriedade, float carta2Propriedade) {
     switch (propriedade) {
         case 1: //População
         case 2: //Área
         case 3: //Pontos turísticos
         case 5: //PIB
-            return compararPropriedadeGeralERetornarCidadeGanhadora_Int32(carta1Propriedade, carta2Propriedade);
-
-        default:
-            return 0;
-    }
-}
-
-int identificarVencedorEmComparacaoDeUmaPropriedade_Single32(int propriedade, float carta1Propriedade, float carta2Propriedade) {
-    switch (propriedade) {
         case 6: //PIB per Capita
         case 7: //Superpoder
             return compararPropriedadeGeralERetornarCidadeGanhadora_Single32(carta1Propriedade, carta2Propriedade);
@@ -210,8 +201,8 @@ void desafioMestre() {
     float carta2Propriedade1 = retornarValorSingle32DePropriedadePeloId(propriedade1ParaComparar, carta1Populacao, carta2Area, carta2Pib, carta2PontosTuristicos, carta2DensidadePopulacional, carta2PibPerCapita, carta2SuperPoder);
     float carta2Propriedade2 = retornarValorSingle32DePropriedadePeloId(propriedade2ParaComparar, carta1Populacao, carta2Area, carta2Pib, carta2PontosTuristicos, carta2DensidadePopulacional, carta2PibPerCapita, carta2SuperPoder);
 
-    int vencedorPropriedade1 = identificarVencedorEmComparacaoDeUmaPropriedade(propriedade1ParaComparar, carta1Propriedade1, carta2Propriedade1);
-    int vencedorPropriedade2 = identificarVencedorEmComparacaoDeUmaPropriedade(propriedade2ParaComparar, carta1Propriedade2, carta2Propriedade2);
+    int vencedorPropriedade1 = identificarVencedorEmComparacaoDeUmaPropriedade_Single32(propriedade1ParaComparar, carta1Propriedade1, carta2Propriedade1);
+    int vencedorPropriedade2 = identificarVencedorEmComparacaoDeUmaPropriedade_Single32(propriedade2ParaComparar, carta1Propriedade2, carta2Propriedade2);
 
     int cartaVencedora;
     if (vencedorPropriedade1 == 0 && vencedorPropriedade2 == 0) {
