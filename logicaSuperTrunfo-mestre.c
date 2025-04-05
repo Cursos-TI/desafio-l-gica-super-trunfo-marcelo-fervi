@@ -233,7 +233,7 @@ void desafioMestre() {
     const char* nomeDaPropriedade1 = retornarNomeDaPropriedadePeloId(propriedade1ParaComparar);
     const char* nomeDaPropriedade2 = retornarNomeDaPropriedadePeloId(propriedade2ParaComparar);
 
-    printf("Resultado da comparação das 2 propriedades entre as cartas '%s' e '%s':\n", carta1Nome, carta2Nome);
+    printf("Resultado da comparação das 2 propriedades '%s' e '%s' entre as cartas '%s' e '%s':\n", nomeDaPropriedade1, nomeDaPropriedade2, carta1Nome, carta2Nome);
     printf("Carta vencedora: %s!\n\n", nomeDaCartaVencedora);
 
     printf("Dados que levaram a definir o vencedor:\n");
